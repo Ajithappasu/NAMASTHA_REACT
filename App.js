@@ -1,15 +1,24 @@
+import React  from "react";
+import ReactDOM from "react-dom/client";
 // this object is helpful in giving attributes  to the element id, etc
     /// ("tagName", {id:"myId"}, content)
-const parent = React.createElement("div",{id:"parent"},
-  [  React.createElement("div", {id:"child"},
-        // if we want to create two child elements  then we have to pass them in an array.
-        React.createElement("h1",{}, "hello from the child 1 " )
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  [
+    // each child element should have a uniques key componenet
+    React.createElement(
+      "div",
+      { id: "child", key: "child1" },
+      React.createElement("h1", {}, "hello from the child 1")
     ),
-  React.createElement("div", {id:"child"},
-        // if we want to create two child elements  then we have to pass them in an array.
-        React.createElement("h1",{}, "hello from the child 1 " )
-    )]
-)
-    const root = ReactDOM.createRoot(document.getElementById("root"));
+    React.createElement(
+      "div",
+      { id: "child", key: "child2" },
+      React.createElement("h1", {}, "hello from the child 2")
+    )
+  ]
+);
 
-    root.render(parent);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
