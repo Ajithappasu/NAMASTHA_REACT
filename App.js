@@ -9,11 +9,12 @@ console.log(heading);
 //     hello from jsx 
 //     </h1>);
 
-
+const number =1000;
+// to write a java Script variable inside a java script  we use  {variable}.
 // this can also be written without return 
  const FunctionalHeading =()=>(
     <div id="container">
-        <h1>heloo without return </h1>
+        <h1>heloo without return {number}{console.log("hello")}</h1>
         </div>);
 
 // react functional component 
