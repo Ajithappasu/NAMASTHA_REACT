@@ -16,7 +16,13 @@ const number =1000;
     <div id="container">
         <h1>heloo without return {number}{console.log("hello")}</h1>
         </div>);
+        // if any one try to send malesious data  javaScript will sanitize data  so no attack possible
 
+
+        //  <FunctionalHeading  />
+        // {FunctionalHeading()}
+        // <FunctionalHeading></FunctionalHeading>
+        // all the things are same   
 // react functional component 
  const HeadingFunctional = ()=>{
     return(<div> 
