@@ -20,14 +20,15 @@ const jsCssObject ={
   flex:"inline"
 }
 
-const RestarentCard = ()=>{
+const RestarentCard = (props)=>{
+  const { resName, cousine,  rating,time } =props;
   return(
   <div className="res-card" >
     <img className="res-log" alt="res-log" src="https://j6e2i8c9.delivery.rocketcdn.me/wp-content/uploads/2020/09/Chicken-Biryani-Recipe-04.jpg"/>
-    <h3>Ajith foods Foods </h3>
-    <h4>Biryani   south indian   chinies </h4>
-       <h4>4.9 starts rating </h4>
-       <h4> 40 mins delivery</h4>
+    <h3>{resName} </h3>
+    <h4>{cousine} </h4>
+       <h4>{rating}starts rating </h4>
+       <h4> {time} mins delivery</h4>
 
   </div>
   );
@@ -38,18 +39,9 @@ const Body = ()=>{
     <div className="Body">
       <div className="search">Search</div>
       <div className="res-container">
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
-           <RestarentCard />
+           <RestarentCard  resName ="megana foods" cousine ="BIryani  chinies " rating ="4.3"  time ="40"/>
+           <RestarentCard resName ="KFC" cousine ="Fried Chiken"  rating ="4.0"  time ="30"/>
+           <RestarentCard resName ="Paradise" cousine ="Indian"  rating ="3.0"  time ="50"/>
       </div>
     </div>
   );
