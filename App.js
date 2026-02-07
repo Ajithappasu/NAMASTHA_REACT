@@ -1,37 +1,68 @@
 import React  from "react";
 import ReactDOM from "react-dom/client";
+const Header =()=>{
+return(<div className="header">
+    <div className="logo-container">
+      <img className="logo"  src="https://www.creativefabrica.com/wp-content/uploads/2020/02/11/Food-Logo-Graphics-1-71-580x386.jpg" />
+    </div>
+  <div className="nav-items">
+      <ul>
+        <li>home</li>
+        <li>About-us</li>
+        <li>Contact-us</li>
+        <li>cart</li>
+      </ul>
+     </div>
+ </div>);
+};
+const jsCssObject ={
+  backgroundColor:"black",
+  flex:"inline"
+}
 
-const heading = React.createElement("h1",{id :"heading"},"hello from react create element");
+const RestarentCard = ()=>{
+  return(
+  <div className="res-card" >
+    <img className="res-log" alt="res-log" src="https://j6e2i8c9.delivery.rocketcdn.me/wp-content/uploads/2020/09/Chicken-Biryani-Recipe-04.jpg"/>
+    <h3>Ajith foods Foods </h3>
+    <h4>Biryani   south indian   chinies </h4>
+       <h4>4.9 starts rating </h4>
+       <h4> 40 mins delivery</h4>
 
-console.log(heading);
-// if we want to write JSX in multiple lines we have to wrap it in  paratasis ()
-// const jsxHeading = (<h1 id ="heading"  className="Main">
-//     hello from jsx 
-//     </h1>);
+  </div>
+  );
+};
 
-const number =1000;
-// to write a java Script variable inside a java script  we use  {variable}.
-// this can also be written without return 
- const FunctionalHeading =()=>(
-    <div id="container">
-        <h1>heloo without return {number}{console.log("hello")}</h1>
-        </div>);
-        // if any one try to send malesious data  javaScript will sanitize data  so no attack possible
+const Body = ()=>{
+  return (
+    <div className="Body">
+      <div className="search">Search</div>
+      <div className="res-container">
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+           <RestarentCard />
+      </div>
+    </div>
+  );
+}
 
+const AppLayout =()=>{
+    return (
+    <div className="app">
+        <Header />
+        <Body /> 
+   </div>)
+};
 
-        //  <FunctionalHeading  />
-        // {FunctionalHeading()}
-        // <FunctionalHeading></FunctionalHeading>
-        // all the things are same   
-// react functional component 
- const HeadingFunctional = ()=>{
-    return(<div> 
-        <FunctionalHeading  />
-        <h1>hello from react function</h1>
-        </div>);
- };
- // this is also callled   component compozision
- 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// we have to vrap it in div to render 
-root.render(<HeadingFunctional/>);
+
+root.render(<AppLayout />);

@@ -1,0 +1,15 @@
+1)  // to write style css inside   js
+  a) wrap it like an object in   style block 
+  <div className="res-card" style={{
+    backgroundColor:"black"
+  }}>
+
+  b)create a seperate css object and  keep it inside the style brackets {}.
+  const jsCssObject ={
+  backgroundColor:"black",
+  flex:"inline"
+    }
+ <div className="res-card" style={jsCssObject}>
+note: this style is only valid for the div block which it is present in .
+
+
