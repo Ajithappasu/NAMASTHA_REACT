@@ -1,21 +1,4 @@
-import React  from "react";
-import ReactDOM from "react-dom/client";
-const Header =()=>{
-return(<div className="header">
-    <div className="logo-container">
-      <img className="logo"  src="https://www.creativefabrica.com/wp-content/uploads/2020/02/11/Food-Logo-Graphics-1-71-580x386.jpg" />
-    </div>
-  <div className="nav-items">
-      <ul>
-        <li>home</li>
-        <li>About-us</li>
-        <li>Contact-us</li>
-        <li>cart</li>
-      </ul>
-     </div>
- </div>);
-};
-
+import RestarentCard from "./RestarentCard";
 const resList =[
   {
     type: "restaurant",
@@ -1900,33 +1883,7 @@ const resList =[
     subtype: "basic",
   },
 ];
-
-const RestarentCard = (props)=>{
- const { resData } = props;
-
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-    deliveryTime,
-  } = resData?.data;
-  return(
-  <div className="res-card" >
-    <img className="res-log" alt="res-log"   src=
-          "https://c7.alamy.com/comp/2FMAGW7/restaurant-logo-vector-illustration-design-template-2FMAGW7.jpg"
-        />
-    <h3>{name} </h3>
-    <h4>{cuisines} </h4>
-       <h4>{avgRating}starts rating </h4>
-       <h4> {deliveryTime} mins delivery</h4>
- 
-  </div>
-  );
-};
-
-const Body = ()=>{
+ const Body = ()=>{
   return (
     <div className="Body">
       <div className="search">Search</div>
@@ -1939,14 +1896,4 @@ const Body = ()=>{
   );
 }
 
-const AppLayout =()=>{
-    return (
-    <div className="app">
-        <Header />
-        <Body /> 
-   </div>)
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default Body;
