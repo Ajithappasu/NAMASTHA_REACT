@@ -19,3 +19,15 @@ ex:
   <RestarentCard resName ="Paradise" cousine ="Indian"  rating ="3.0"  time ="50"/>
    // we use this in function  const { resName, cousine,  rating,time } =props;
   // we can use props.resName, directyl id needed
+
+
+
+3) react Hooks )  useState : 
+       import { useState } from "react"; // we import it as named .
+           // we are delcaring a state component   and set of that state component to update  the component 
+    const [ listRestraunt ,setListRestraunt ]= useState(resList);
+    // we are decaling the values inside  the useState ()  
+    // we use this setListRestraunt to udate the component 
+
+     setListRestraunt(filteredRestraunt);
+            // onece a sate component is updated react will automaitically render every thing once again related to the component
