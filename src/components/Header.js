@@ -1,7 +1,10 @@
+import {LOGO_HOME_URL } from "../utils/constants";
+
+
 const Header =()=>{
 return(<div className="header">
     <div className="logo-container">
-      <img className="logo"  src="https://www.creativefabrica.com/wp-content/uploads/2020/02/11/Food-Logo-Graphics-1-71-580x386.jpg" />
+      <img className="logo"  src={LOGO_HOME_URL} />
     </div>
   <div className="nav-items">
       <ul>
