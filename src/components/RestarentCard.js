@@ -4,11 +4,9 @@ const RestarentCard = (props)=>{
  const { resData } = props;
 
   const {
-    cloudinaryImageId,
     name,
     avgRating,
     cuisines,
-    costForTwo,
     deliveryTime,
   } = resData?.data;
   return(
