@@ -1,28 +1,30 @@
 import RestarentCard from "./RestarentCard";
 import resList from "../utils/MockData";
-import { useState } from "react";
-// let ListRestraunt =[
-//   {  data: {
-//       id: "334475",
-//       name: "KFC",
-//       cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],  
-//       deliveryTime: 36,
-//       avgRating:"4.2"
-//     },},
-      
-//     {data: {
-//       id: "334476",
-//       name: "MCD",
-//       cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],  
-//       deliveryTime: 40,
-//       avgRating:"3.8"
-//     } ,
-//     },];
+import { useState,useEffect } from "react";
+
  const Body = ()=>{
-    // we are delcaring a state component   and set of that state component to update  the component 
-    const [ listRestraunt ,setListRestraunt ]= useState(resList);
-    // we are decaling the values inside  the useState ()  
-    // we use this setListRestraunt to udate teh component 
+     const [ listRestraunt ,setListRestraunt ]= useState([]);
+
+  const fetchData= async ()=>{
+const data = await fetch(
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.38430&lng=78.45830&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+);
+const json=  await data.json();
+console.log(json);
+const restaurants =
+  json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+setListRestraunt(restaurants || []);
+
+  }
+  useEffect(()=>{
+console.log("use effect is working ");
+fetchData();
+  },[]);
+   
+  
+  
+ 
   return (
     <div className="Body">
       <div className="search">Search</div>
@@ -33,8 +35,9 @@ import { useState } from "react";
             // onece a sate component is updated react will  render every thing once again related to the component
       }}>filter</button>
       <div className="res-container">
-        { listRestraunt.map((resatrent)=>(
-          <RestarentCard key = {resatrent.data.id} resData={resatrent}/>
+        { listRestraunt.map((restaurant)=>(
+          <RestarentCard    key={restaurant.info.id}
+    resData={restaurant.info}/>
         ))}
       </div>
     </div>
