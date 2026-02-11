@@ -1,7 +1,6 @@
 import RestarentCard from "./RestarentCard";
-import resList from "../utils/MockData";
 import { useState,useEffect } from "react";
-
+import Shimmer from "./Shimmer";
  const Body = ()=>{
      const [ listRestraunt ,setListRestraunt ]= useState([]);
 
@@ -13,24 +12,21 @@ const json=  await data.json();
 console.log(json);
 const restaurants =
   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
 setListRestraunt(restaurants || []);
 
   }
+
   useEffect(()=>{
 console.log("use effect is working ");
 fetchData();
   },[]);
-   
-  
-  
- 
-  return (
+  // condesional rendering
+  return listRestraunt.length ===0 ? <Shimmer/> :(
     <div className="Body">
       <div className="search">Search</div>
       <button onClick={()=>{
-         let      filteredRestraunt = resList.filter(
-            (res)=>res.data.avgRating>4)
+         let      filteredRestraunt = listRestraunt.filter(
+            (res)=>res.info.avgRating>4)
             setListRestraunt(filteredRestraunt);
             // onece a sate component is updated react will  render every thing once again related to the component
       }}>filter</button>
