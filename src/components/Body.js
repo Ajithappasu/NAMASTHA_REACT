@@ -22,7 +22,11 @@ setListRestraunt(restaurants || []);
 setAllRestrauntList(restaurants || []); 
   }
 
+
   useEffect(()=>{
+    // if the dependency array is empty then it is called initialy only on first render 
+    // if the dependeny array is not present then it will be called on every render 
+    // if dependency array has element [btnNameReact] => called every time  when that elemet(btnNameReact) is updated
 console.log("use effect is working ");
 fetchData();
   },[]);

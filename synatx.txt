@@ -22,7 +22,8 @@ ex:
 
 
 
-3) react Hooks )  useState : 
+3) react Hooks )  nere use hooks inside an if else block or for , wihile loop ref react documentation
+ useState : 
        import { useState } from "react"; // we import it as named .
            // we are delcaring a state component   and set of that state component to update  the component 
     const [ listRestraunt ,setListRestraunt ]= useState(resList);
@@ -31,3 +32,13 @@ ex:
 
      setListRestraunt(filteredRestraunt);
             // onece a sate component is updated react will automaitically render every thing once again related to the component
+
+
+    
+    b)   useEffect(()=>{
+         console.log("use effect is working ");
+      fetchData();
+          },[]);
+          // if the dependency array is empty then it is called initialy only on first render 
+          // if the dependeny array is not present then it will be called on every render 
+          // if dependency array has element [btnNameReact] => called every time  when that elemet(btnNameReact) is updated   
