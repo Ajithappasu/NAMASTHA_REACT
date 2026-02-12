@@ -11,12 +11,13 @@ import Shimmer from "./Shimmer";
 
   const fetchData= async ()=>{
 const data = await fetch(
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.38430&lng=78.45830&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  "https://corsproxy.io/?url=https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9818564%26lng=79.4703885%26is-seo-homepage-enabled=true%26page_type=DESKTOP_WEB_LISTING"
 );
 const json=  await data.json();
-console.log(json);
-const restaurants =
-  json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+console.log(json)
+const restaurants = json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+// const restaurants = json;
+console.log(restaurants);
 setListRestraunt(restaurants || []);
 setAllRestrauntList(restaurants || []); 
   }
@@ -41,7 +42,7 @@ fetchData();
         </div>
       <button className="filter-button" onClick={()=>{
          let      filteredRestraunt = listRestraunt.filter(
-            (res)=>res.info.avgRating>4)
+            (res)=>Number(res?.info?.avgRating)>4)
             setListRestraunt(filteredRestraunt);
             // onece a sate component is updated react will  render every thing once again related to the component
       }}>filter</button>
