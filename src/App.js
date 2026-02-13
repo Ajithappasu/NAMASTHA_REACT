@@ -5,7 +5,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contacts from "./components/contactus";
 import Error from "./components/Error";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider ,Outlet} from "react-router-dom";
 
 
 
@@ -13,15 +13,20 @@ const AppLayout =()=>{
     return (
     <div className="app">
         <Header />
-        <Body /> 
+        <Outlet /> 
    </div>)
 };
+// Outlet will help us  chage the the body of the code dynamically. with the childeren routes 
 const appRouter =createBrowserRouter([
     {
   path :"/",
   element :<AppLayout /> ,
-  errorElement:<Error />,
+  children :[
+    {
+        path:"/",
+        element:<Body />,
     },
+   
     {
         path :"/about",
         element :<About />,
@@ -30,6 +35,9 @@ const appRouter =createBrowserRouter([
         path :"/contacts",
         element :<Contacts />,
     },
+],
+  errorElement:<Error />,
+},
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

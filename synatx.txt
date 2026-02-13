@@ -43,3 +43,7 @@ when ever you see a function   starting with "use" then it is Hook.
           // if the dependency array is empty then it is called initialy only on first render 
           // if the dependeny array is not present then it will be called on every render 
           // if dependency array has element [btnNameReact] => called every time  when that elemet(btnNameReact) is updated   
+
+
+4) Link : we use link  in the elements to shift to another route  
+   because it desnot refresh the entire page it will  render  same as render object
