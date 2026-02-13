@@ -23,6 +23,7 @@ ex:
 
 
 3) react Hooks )  nere use hooks inside an if else block or for , wihile loop ref react documentation
+when ever you see a function   starting with "use" then it is Hook. 
  useState : 
        import { useState } from "react"; // we import it as named .
            // we are delcaring a state component   and set of that state component to update  the component 
