@@ -3,34 +3,35 @@ import React from "react";
 class UserClass extends React.Component{
 constructor(props){
     super(props)
-  console.log("chiled constructor");
-    // in class component we have to declare the state variable in  constructure 
+console.log("constructor called "); // 1
 this.state={
-    count1:1,
-    count2:2,
+    userInfo :{
+        name : "ajith",
+        location:"mncl",
+    }
 };
 }
-componentDidMount(){
-    console.log("child  component did mount");
+ async componentDidMount(){
+    console.log("componenetDidMount");/// 3
+ const data =  await fetch("https://api.github.com/users/akshaymarch7");
+ const json = await data.json();
+ this.setState({
+    userInfo: json,
+ })
+}
+componentDidUpdate(){
+    console.log("componentDidUpdate"); // 5 
+}
+componentWillUnmount(){
+    console.log("componentWillUnmount"); // 6
 }
     render(){
-        console.log("child renderd ")
-        const{name, location , contact}= this.props;
-        // we have to get count variable  from  this.sate 
-        const {count1, count2} = this.state;
+        console.log("render methd called");// 2  4 
+        const {name, location} = this.state.userInfo;
         return( <div className="user-card">
-            <h1> count1 : {count1}</h1>
-       <h1> count2 : {count2}</h1>
-       <button onClick={()=>{
-        // to upadte a state variable in  class 
-        this.setState({
-            count1: this.state.count1+1,
-            count2 : this.state.count2+1,
-        });
-       }}>button</button>
         <h2>Name :{name}</h2>
         <h3>Location : {location}</h3>
-        <h3>Contacts : {contact}</h3>
+        <h3>Contacts : "hello</h3>
     </div>);
     }
 }

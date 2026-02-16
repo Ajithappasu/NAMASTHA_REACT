@@ -4,16 +4,14 @@ import { Component } from "react"
 class About extends Component{
     constructor(props){
     super(props);
- console.log("parent constructor");
+
     }
     componentDidMount(){
         // this componetDidMount will run only after  the relative render menthod and its child methods are fully complete 
         // this is same like useEffect in functional component callled only after the  page is rendered 
-    console.log("parent componeent did mount ");
+  
     }
     render(){
-        
-        console.log("parent render ");
          return(<div>
         <h1>About</h1>
         <h2>This is about the about page ......</h2>
