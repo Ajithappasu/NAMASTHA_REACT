@@ -1,11 +1,24 @@
 import Users from "./User"
 import UserClass  from "./UserClass"
-const About = ()=>{
-    return(<div>
+import { Component } from "react"
+class About extends Component{
+    constructor(props){
+    super(props);
+ console.log("parent constructor");
+    }
+    componentDidMount(){
+        // this componetDidMount will run only after  the relative render menthod and its child methods are fully complete 
+        // this is same like useEffect in functional component callled only after the  page is rendered 
+    console.log("parent componeent did mount ");
+    }
+    render(){
+        
+        console.log("parent render ");
+         return(<div>
         <h1>About</h1>
         <h2>This is about the about page ......</h2>
-        <Users name ={"ajith function"} location={"hyd"}  contact ={"contact from function"}/>
         <UserClass name ={"ajith Class"} location ={"mancherial"}  contact ={"conatct from class"} />
     </div>)
+    }
 }
 export default About

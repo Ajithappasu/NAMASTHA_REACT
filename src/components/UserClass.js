@@ -3,14 +3,18 @@ import React from "react";
 class UserClass extends React.Component{
 constructor(props){
     super(props)
-
+  console.log("chiled constructor");
     // in class component we have to declare the state variable in  constructure 
 this.state={
     count1:1,
     count2:2,
 };
 }
+componentDidMount(){
+    console.log("child  component did mount");
+}
     render(){
+        console.log("child renderd ")
         const{name, location , contact}= this.props;
         // we have to get count variable  from  this.sate 
         const {count1, count2} = this.state;
