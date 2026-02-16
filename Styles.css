@@ -67,3 +67,7 @@ flex-wrap: wrap;
 .filter-button{
     
 }
+.user-card{
+    padding: 10px;
+    border: solid black;
+}

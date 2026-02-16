@@ -11,11 +11,13 @@ import Shimmer from "./Shimmer";
 
   const fetchData= async ()=>{
 const data = await fetch(
-  "https://corsproxy.io/?url=https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9818564%26lng=79.4703885%26is-seo-homepage-enabled=true%26page_type=DESKTOP_WEB_LISTING"
+  "https://namastedev.com/api/v1/listRestaurants"
 );
 const json=  await data.json();
-console.log(json)
-const restaurants = json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+     const restaurants =
+        json?.data?.data?.cards
+          ?.find((card) => card?.card?.card?.gridElements)
+          ?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 // const restaurants = json;
 console.log(restaurants);
 setListRestraunt(restaurants || []);
