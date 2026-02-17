@@ -1,6 +1,7 @@
 import RestarentCard from "./RestarentCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
  const Body = ()=>{
   console.log("body rendering");
 
@@ -19,7 +20,7 @@ const json=  await data.json();
           ?.find((card) => card?.card?.card?.gridElements)
           ?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 // const restaurants = json;
-console.log(restaurants);
+
 setListRestraunt(restaurants || []);
 setAllRestrauntList(restaurants || []); 
   }
@@ -53,12 +54,16 @@ fetchData();
             // onece a sate component is updated react will  render every thing once again related to the component
       }}>filter</button>
       </div>
-      <div className="res-container">
-        { listRestraunt.map((restaurant)=>(
-          <RestarentCard    key={restaurant.info.id}
-    resData={restaurant.info}/>
-        ))}
-      </div>
+   <div className="res-container">
+  {listRestraunt.map((restaurant) => (
+    <Link
+      key={restaurant.info.id}
+      to={"/restarent/" + restaurant.info.id}
+    >
+      <RestarentCard resData={restaurant.info} />
+    </Link>
+  ))}
+</div>
     </div>
   );
 }
