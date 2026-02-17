@@ -1,4 +1,5 @@
 import { RES_LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const RestarentCard = (props)=>{
  const { resData } = props;
@@ -12,6 +13,7 @@ const RestarentCard = (props)=>{
 
   return(
   <div className="res-card" >
+    <Link to="/restarent/:resId" >
     <img className="res-log" alt="res-log"   src=
         {RES_LOGO_URL+cloudinaryImageId} 
         />
@@ -20,6 +22,7 @@ const RestarentCard = (props)=>{
     <h4>{cuisines} </h4>
        <h4>{avgRating}starts rating </h4>
        <h4> {deliveryTime} mins delivery</h4>
+       </Link>
  
   </div>
   );

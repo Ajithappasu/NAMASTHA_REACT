@@ -10,7 +10,7 @@ const data = await fetch(
   "https://namastedev.com/api/v1/listRestaurantMenu/123456"
 );
 
-   console.log("hiii");
+   
    const json =  await data.json();
    console.log(json);
  
@@ -22,13 +22,33 @@ const data = await fetch(
 
     if (resInfo === null) return <Shimmer />;
 
-  
+  const { name } = resInfo?.data?.cards[2]?.card?.card?.info;
+
+  const categories =
+  resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+    ?.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
     return(<div>
-        <h1> Name of the Restarent</h1>
+        <h1> {name}</h1>
         <h2>menu </h2>
-        <h3>Biryani</h3>  
-         <h3>roti</h3>
-            <h3>chapathi</h3>
+       {categories.map((category) => (
+      <div key={category.card.card.title}>
+        <h3>{category.card.card.title}</h3>
+
+        {category.card.card.itemCards.map((item) => (
+          <div key={item.card.info.id}>
+            <p>
+              {item.card.info.name} - ₹
+              {(item.card.info.price || item.card.info.defaultPrice) / 100}
+            </p>
+          </div>
+        ))}
+      </div>
+    ))}
     </div>)
 }
 
