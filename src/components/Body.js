@@ -2,8 +2,10 @@ import RestarentCard from "./RestarentCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
  const Body = ()=>{
   console.log("body rendering");
+  const onlineStatus = useOnlineStatus();
 
      const [ listRestraunt ,setListRestraunt ]= useState([]);
      const [allRestrauntList, setAllRestrauntList ]= useState([]);
@@ -33,6 +35,11 @@ setAllRestrauntList(restaurants || []);
 console.log("use effect is working ");
 fetchData();
   },[]);
+
+
+  if(!onlineStatus){
+    return(<h1>Looks like you are offline Please connect to your Internet</h1>)
+  }
   // condesional rendering
   return listRestraunt.length ===0 ? <Shimmer/> :(
     <div className="Body">
