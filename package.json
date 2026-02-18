@@ -20,9 +20,13 @@
   },
   "homepage": "https://github.com/Ajithappasu/NAMASTHA_REACT#readme",
   "devDependencies": {
-    "parcel": "^2.16.3"
+    "autoprefixer": "^10.4.24",
+    "parcel": "^2.16.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "6.4"
