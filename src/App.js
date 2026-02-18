@@ -5,6 +5,7 @@ import About from "./components/About";
 import Contacts from "./components/contactus";
 import Error from "./components/Error";
 import RestarentMenu from "./components/RestarentMenu";
+import  { Suspense,lazy } from "react";
 import { createBrowserRouter, RouterProvider ,Outlet} from "react-router-dom";
 
 
