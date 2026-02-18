@@ -9,6 +9,7 @@ import  { Suspense,lazy } from "react";
 import { createBrowserRouter, RouterProvider ,Outlet} from "react-router-dom";
 
 
+const Growsery = lazy(()=> import("./components/Growsery"))
 
 const AppLayout =()=>{
     return (
@@ -39,6 +40,10 @@ const appRouter =createBrowserRouter([
     {
         path:"/restarent/:resId",
         element:<RestarentMenu />
+    },
+    {
+        path:"/Growsery",
+        element:<Suspense fallback={<h1>loading.... </h1>}><Growsery></Growsery></Suspense>
     }
 ],
   errorElement:<Error />,

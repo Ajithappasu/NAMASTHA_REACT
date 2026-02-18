@@ -2,6 +2,7 @@
   "name": "namasta_react",
   "version": "1.0.0",
   "description": "This is a react project by ajith sai",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",

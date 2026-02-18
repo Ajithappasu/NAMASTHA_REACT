@@ -17,6 +17,7 @@ return(<div className="header">
         <li>online Status : {onlineStatus?"✅":"🔴"}</li>
      <li><Link  to ="/about">About us</Link></li>
      <li><Link  to ="/contacts">contact us</Link></li>
+     <li><Link to="/Growsery">Growsery</Link></li>
         <li>cart</li>
         <button className="login" onClick={()=>{btnName ==="login"?setBtnName("logout"):setBtnName("login")}}>{btnName}</button>
       </ul>
