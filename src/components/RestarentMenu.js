@@ -21,7 +21,7 @@ const RestarentMenu =()=>{
     );
 
     return(<div>
-        <h1> {name}</h1>
+        <h1  className=""> {name}</h1>
         <h2>menu </h2>
        {categories.map((category) => (
       <div key={category.card.card.title}>
