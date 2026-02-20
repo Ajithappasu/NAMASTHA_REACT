@@ -3,11 +3,12 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestarentMenu from "../utils/useRestarentMenu";
 import RestarentCategories from "./RestarentCategories";
+import { useState } from "react";
 const RestarentMenu =()=>{
   const {resId} = useParams();
 
     const resInfo = useRestarentMenu(resId);
-
+  const [showIndex , setShowIndex]= useState(0);
     if (resInfo === null) return <Shimmer />;
 
   const { name } = resInfo?.data?.cards[2]?.card?.card?.info;
@@ -26,8 +27,13 @@ const RestarentMenu =()=>{
         <h1  className="text-center font-bold my-7 text-2xl"> {name}</h1>
         <h2>menu </h2>
       {
-        categories.map((category)=>
-          (<RestarentCategories data ={category} key ={category.card.card.title} />)
+        // this is children elements are controlled elements
+        // we are controling the child by parent . 
+        categories.map((category,Index)=>
+          (<RestarentCategories data ={category} key ={category.card.card.title} 
+          showItems={showIndex=== Index?true:false}
+          setShowIndex={()=>{showIndex=== Index ?setShowIndex(null):setShowIndex(Index)}}
+          />)
         )
       }
        {/* {categories.map((category) => (
