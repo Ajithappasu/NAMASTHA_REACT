@@ -16,7 +16,7 @@ const RestarentCard = (props)=>{
    
     <img className="rounded-lg" alt="res-log"   src=
         {RES_LOGO_URL+cloudinaryImageId} 
-        />deliveryTime
+        />
       
     <h3 className="font-bold py-4 text-lg">{name} </h3>
     <h4>{cuisines} </h4>

@@ -66,8 +66,7 @@ fetchData();
   {listRestraunt.map((restaurant) => (
     <Link
       key={restaurant.info.id}
-      to={"/restarent/" + restaurant.info.id}
-    >{console.log("time "+restaurant.info.sla.deliveryTime)}
+      to={"/restarent/" + restaurant.info.id}>
      { restaurant.info.sla.deliveryTime <25 ?
       (< RestarentCardWithLable  resData ={restaurant.info} />)
       :
@@ -80,4 +79,3 @@ fetchData();
 }
 
 export default Body;
-//git commit -m"tailwindcss modifications and  Higher Order Components"^C

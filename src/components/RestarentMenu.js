@@ -2,7 +2,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestarentMenu from "../utils/useRestarentMenu";
-
+import RestarentCategories from "./RestarentCategories";
 const RestarentMenu =()=>{
   const {resId} = useParams();
 
@@ -20,10 +20,17 @@ const RestarentMenu =()=>{
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
+    console.log("CAT ",categories)
+
     return(<div>
-        <h1  className=""> {name}</h1>
+        <h1  className="text-center font-bold my-7 text-2xl"> {name}</h1>
         <h2>menu </h2>
-       {categories.map((category) => (
+      {
+        categories.map((category)=>
+          (<RestarentCategories data ={category} key ={category.card.card.title} />)
+        )
+      }
+       {/* {categories.map((category) => (
       <div key={category.card.card.title}>
         <h3>{category.card.card.title}</h3>
 
@@ -36,7 +43,7 @@ const RestarentMenu =()=>{
           </div>
         ))}
       </div>
-    ))}
+    ))} */}
     </div>)
 }
 
